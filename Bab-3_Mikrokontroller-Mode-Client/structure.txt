@@ -1,0 +1,12 @@
+Bab-3_Mikrokontroller-Mode-Client/
+├── backend/
+│   ├── .env                 <-- (Tempat simpan password DB)
+│   ├── .gitignore           <-- (Isinya: .env)
+│   ├── sensorsingle.php     <-- (File PHP 1: Single Data)
+│   ├── sensormulti.php      <-- (File PHP 2: Multi Data)
+│   └── sensorwait.php       <-- (File PHP 3: Wait Data)
+└── firmware/
+    ├── NodeMCU_Single/
+    │   └── NodeMCU_Single.ino  <-- (File Arduino 1: Untuk Single/Wait)
+    └── NodeMCU_Multi/
+        └── NodeMCU_Multi.ino   <-- (File Arduino 2: Untuk Multi Sensor)
