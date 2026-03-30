@@ -4,6 +4,7 @@
 // --- VARIABEL GLOBAL ---
 const char* ssid = "NAMA_WIFI_LU";     // Ganti ke WiFi lu
 const char* password = "PASSWORD_LU";   // Ganti ke Password lu
+const String serverIP = "http://[IP_ADDRESS]";
 
 // Inisialisasi PIN (Gue pake 'D' gede biar standar Arduino IDE)
 int led1 = D1; 
@@ -60,8 +61,8 @@ void loop() {
     if(WiFi.status() == WL_CONNECTED){
         HTTPClient http;
 
-        // --- TARA'S NOTE: Ganti IP & Port sesuai server Linux lu! ---
-        http.begin("http://192.168.x.x:8000/sensormulti.php"); 
+        // --- NOTE: Ganti IP & Port sesuai server Linux lu! ---
+        http.begin(serverIP + "/sensormulti.php"); 
         
         int httpCode = http.GET();
         if(httpCode > 0){

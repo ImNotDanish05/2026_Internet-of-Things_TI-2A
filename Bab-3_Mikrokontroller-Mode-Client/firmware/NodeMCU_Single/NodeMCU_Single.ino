@@ -4,6 +4,7 @@
 // --- VARIABEL GLOBAL ---
 const char* ssid = "NAMA_WIFI_LU";     // Ganti pake SSID WiFi lu
 const char* password = "PASSWORD_WIFI"; // Ganti pake Password WiFi lu
+const String serverIP = "http://[IP_ADDRESS]";
 int pinLED = 5; // Pin D1 pada NodeMCU
 
 #define ON HIGH
@@ -40,9 +41,9 @@ void loop() {
 
         Serial.print("[HTTP] begin...\n");
         
-        // --- TARA'S NOTE: Ganti IP sesuai IP Laptop Linux lu! ---
+        // --- NOTE: Ganti IP sesuai IP Laptop Linux lu! ---
         // Contoh: http://192.168.1.15:8000/sensorsingle.php
-        http.begin("http://192.168.x.x:8000/sensorsingle.php"); 
+        http.begin(serverIP + "/sensorsingle.php");
 
         Serial.print("[HTTP] GET...\n");
         int httpCode = http.GET(); // Ambil data dari PHP
