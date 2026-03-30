@@ -12,24 +12,6 @@ Berbeda dengan versi buku, repositori ini sudah di-**refactor** untuk efisiensi:
 
 ---
 
-## 📂 Struktur Repositori
-
-Bab-3_Mikrokontroller-Mode-Client/
-├── backend/
-│   ├── .env.example          # Template environment variables
-│   ├── db_init.php           # Seeder: Pembuat Database & Tabel
-│   ├── db_seed.php           # Seeder: Pengisi Data Dummy
-│   ├── sensorsingle.php      # Endpoint untuk baca 1 data (Single)
-│   └── sensormulti.php       # Endpoint untuk baca semua data (Multi)
-├── firmware/
-│   ├── NodeMCU_Single/
-│   │   └── NodeMCU_Single.ino # Kode Arduino untuk 1 LED
-│   └── NodeMCU_Multi/
-│       └── NodeMCU_Multi.ino  # Kode Arduino untuk 4 LED sekaligus
-└── README.md
-
----
-
 ## 🛠️ Persyaratan Sistem (Prerequisites)
 
 - **Hardware:** NodeMCU ESP8266 (V1/V2/V3), 4x LED, 4x Resistor 220 Ohm, Kabel Jumper, Breadboard.
