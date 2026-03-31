@@ -2,9 +2,9 @@
 #include <ESP8266WiFi.h>
 
 // --- VARIABEL GLOBAL ---
-const char* ssid = "NAMA_WIFI_LU";     // Ganti ke WiFi lu
-const char* password = "PASSWORD_LU";   // Ganti ke Password lu
-const String serverIP = "http://10.26.33.214";
+const char* ssid = "";     // Ganti ke WiFi lu
+const char* password = "";   // Ganti ke Password lu
+const String serverIP = "http://10.26.33.214:8000";
 
 // Inisialisasi PIN (Gue pake 'D' gede biar standar Arduino IDE)
 int led1 = D1; 

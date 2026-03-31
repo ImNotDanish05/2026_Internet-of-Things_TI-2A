@@ -2,9 +2,9 @@
 #include <HTTPClient.h>
 
 // --- VARIABEL GLOBAL ---
-const char* ssid = "NAMA_WIFI_LU";     // Ganti pake SSID WiFi lu
-const char* password = "PASSWORD_WIFI"; // Ganti pake Password WiFi lu
-const String serverIP = "http://10.26.33.214";
+const char* ssid = "";     // Ganti pake SSID WiFi lu
+const char* password = ""; // Ganti pake Password WiFi lu
+const String serverIP = "http://10.26.33.214:8000";
 int pinLED = 5; // Pin D1 pada NodeMCU
 
 #define ON HIGH
