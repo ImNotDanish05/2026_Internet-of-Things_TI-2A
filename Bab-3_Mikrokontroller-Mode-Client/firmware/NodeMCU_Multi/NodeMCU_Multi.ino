@@ -4,7 +4,7 @@
 // --- VARIABEL GLOBAL ---
 const char* ssid = "NAMA_WIFI_LU";     // Ganti ke WiFi lu
 const char* password = "PASSWORD_LU";   // Ganti ke Password lu
-const String serverIP = "http://[IP_ADDRESS]";
+const String serverIP = "http://10.26.33.214";
 
 // Inisialisasi PIN (Gue pake 'D' gede biar standar Arduino IDE)
 int led1 = D1; 

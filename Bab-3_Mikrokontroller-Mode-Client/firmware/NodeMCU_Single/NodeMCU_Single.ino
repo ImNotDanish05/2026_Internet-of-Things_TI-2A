@@ -1,10 +1,10 @@
-#include <ESP8266HTTPClient.h>
-#include <ESP8266WiFi.h>
+#include <WiFi.h>
+#include <HTTPClient.h>
 
 // --- VARIABEL GLOBAL ---
 const char* ssid = "NAMA_WIFI_LU";     // Ganti pake SSID WiFi lu
 const char* password = "PASSWORD_WIFI"; // Ganti pake Password WiFi lu
-const String serverIP = "http://[IP_ADDRESS]";
+const String serverIP = "http://10.26.33.214";
 int pinLED = 5; // Pin D1 pada NodeMCU
 
 #define ON HIGH
