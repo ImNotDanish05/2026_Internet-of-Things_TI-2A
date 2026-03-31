@@ -1,12 +1,14 @@
 <?php
-// --- LOAD ENV (Agar password database aman) ---
+// --- LOAD ENV ---
 function loadEnv($path) {
     if (!file_exists($path)) return false;
     $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
         if (strpos(trim($line), '#') === 0) continue;
-        list($name, $value) = explode('=', $line, 2);
-        $_ENV[trim($name)] = trim($value);
+        if (strpos($line, '=') !== false) {
+            list($name, $value) = explode('=', $line, 2);
+            $_ENV[trim($name)] = trim($value);
+        }
     }
 }
 loadEnv(__DIR__ . '/.env');
@@ -20,23 +22,21 @@ $tableName  = $_ENV['DB_TABLE'] ?? 'sensor';
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-// Cek koneksi
 if (!$conn) {
     die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-// --- QUERY DATA (Sesuai Buku Hal. 58) ---
-// Mengambil semua data dari tabel sensor dan diurutkan berdasarkan idSensor
-$sql = "SELECT * FROM $tableName ORDER BY idSensor ASC";
+// --- QUERY DATA ---
+$sql = "SELECT statusSensor FROM $tableName ORDER BY idSensor ASC LIMIT 4";
 $result = mysqli_query($conn, $sql);
 
+$statusArray = []; // Wadah buat nampung angka status
+
 if (mysqli_num_rows($result) > 0) {
-    // Output data: menggabungkan status tiap baris dengan pemisah koma
     while($row = mysqli_fetch_assoc($result)) {
-        // TARA FIX: Di buku tulisannya 'statussensor', tapi biasanya di DB itu 'statusSensor'
-        // Cek tabel MySQL lu ya, kalau kecil semua tinggal ganti jadi statussensor
-        echo $row["statusSensor"] . ","; 
+        $statusArray[] = $row["statusSensor"]; // Masukin ke array
     }
+    echo implode(",", $statusArray);
 } else {
     echo "0 results";
 }

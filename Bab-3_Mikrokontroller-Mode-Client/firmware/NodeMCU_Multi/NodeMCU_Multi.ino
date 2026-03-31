@@ -1,19 +1,19 @@
-#include <ESP8266HTTPClient.h>
-#include <ESP8266WiFi.h>
+#include <WiFi.h>
+#include <HTTPClient.h>
 
 // --- VARIABEL GLOBAL ---
 const char* ssid = "";     // Ganti ke WiFi lu
 const char* password = "";   // Ganti ke Password lu
 const String serverIP = "http://10.26.33.214:8000";
 
-// Inisialisasi PIN (Gue pake 'D' gede biar standar Arduino IDE)
-int led1 = D1; 
-int led2 = D2;
-int led3 = D3;
-int led4 = D4;
+// Inisialisasi PIN
+int led1 = 2; 
+int led2 = 5;
+int led3 = 18;
+int led4 = 23;
 
-#define ON HIGH
-#define OFF LOW
+#define ON LOW
+#define OFF HIGH
 
 int firstVal, secondVal;
 
@@ -94,4 +94,4 @@ void loop() {
         Serial.println("Reconnecting WiFi...");
     }
     delay(500); // Cek tiap setengah detik
-}s
+}

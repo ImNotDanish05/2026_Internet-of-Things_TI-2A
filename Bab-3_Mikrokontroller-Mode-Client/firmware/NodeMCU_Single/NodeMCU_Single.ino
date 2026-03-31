@@ -5,7 +5,7 @@
 const char* ssid = "";     // Ganti pake SSID WiFi lu
 const char* password = ""; // Ganti pake Password WiFi lu
 const String serverIP = "http://10.26.33.214:8000";
-int pinLED = 5; // Pin D1 pada NodeMCU
+int pinLED = 2; // Pin D1 pada NodeMCU
 
 #define ON HIGH
 #define OFF LOW
@@ -35,43 +35,48 @@ void setup() {
 }
 
 void loop() {
-    // Cek apakah masih konek WiFi
     if(WiFi.status() == WL_CONNECTED){
         HTTPClient http;
-
-        Serial.print("[HTTP] begin...\n");
         
-        // --- NOTE: Ganti IP sesuai IP Laptop Linux lu! ---
-        // Contoh: http://192.168.1.15:8000/sensorsingle.php
-        http.begin(serverIP + "/sensorsingle.php");
+        // Gabungin URL
+        String fullURL = serverIP + "/sensorsingle.php";
+        http.begin(fullURL);
 
-        Serial.print("[HTTP] GET...\n");
-        int httpCode = http.GET(); // Ambil data dari PHP
+        int httpCode = http.GET();
         
         if(httpCode > 0){
-            Serial.printf("[HTTP] GET... code: %d\n", httpCode);
-
-            // Jika file ditemukan di server (HTTP 200 OK)
             if(httpCode == HTTP_CODE_OK) {
-                String status = http.getString(); // Baca isi dari PHP (0 atau 1)
-                Serial.println("Data dari DB: " + status);
+                String status = http.getString();
+                
+                // --- TARA'S DEBUGGING LOG ---
+                status.trim(); // Hapus spasi/enter liar dari PHP
+                Serial.print(">>> Respon Server: [");
+                Serial.print(status);
+                Serial.println("]"); 
 
-                // Logika: Jika dari DB dapet "0", LED MATI. Selain itu NYALA.
-                if(status.indexOf("0") != -1){
-                    digitalWrite(pinLED, OFF);
-                    Serial.println("LED Posisi OFF");
-                } else {
+                if(status == "1") {
                     digitalWrite(pinLED, ON);
-                    Serial.println("LED Posisi ON");
+                    Serial.println(">>> STATUS: NYALA (HIGH)");
+                } 
+                else if(status == "0") {
+                    digitalWrite(pinLED, OFF);
+                    Serial.println(">>> STATUS: MATI (LOW)");
+                } 
+                else {
+                    Serial.println(">>> ERROR: Data bukan 0 atau 1!");
                 }
+                // ----------------------------
+
             } else {
-                Serial.printf("[HTTP] GET... failed, error: %s\n", http.errorToString(httpCode).c_str());
+                Serial.printf("[HTTP] Error Code: %d\n", httpCode);
             }
+        } else {
+            Serial.printf("[HTTP] GET failed, error: %s\n", http.errorToString(httpCode).c_str());
         }
-        http.end(); // Tutup koneksi HTTP
+        http.end();
     } else {
-        Serial.println("Waiting for WiFi...");
+        Serial.println("WiFi Disconnected!");
     }
     
-    delay(1000); // Tunggu 1 detik sebelum nanya lagi ke server
+    delay(2000); // Kasih jeda 2 detik biar terminal nggak pusing baca log-nya
 }
