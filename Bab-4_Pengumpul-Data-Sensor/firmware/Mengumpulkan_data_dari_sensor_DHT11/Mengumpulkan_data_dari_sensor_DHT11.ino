@@ -2,7 +2,7 @@
 #include <HTTPClient.h>
 #include "DHT.h"
 
-#define DHTPIN 5
+#define DHTPIN 2
 #define DHTTYPE DHT11
 
 DHT dht(DHTPIN, DHTTYPE);
