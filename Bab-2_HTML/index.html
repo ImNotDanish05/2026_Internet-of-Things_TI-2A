@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .device-card {
+            background: white;
+            padding: 15px;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn-on {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .btn-on:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+
+        .btn-off {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .btn-off:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        table {
+            margin: 25px auto;
+            border-collapse: collapse;
+            width: 90%;
+            max-width: 500px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>ESP32 Smart Device Control</h2>
+    <hr style="border: 1px solid #ccc; margin-bottom: 20px; width: 50%;">
+
+    <div class="device-card">
+        <p style="margin-top: 0;"><b>Device 1</b></p>
+        <button class='btn btn-on'>Turn ON</button>
+        <button class='btn btn-off'>Turn OFF</button>
+    </div>
+
+    <div class="device-card">
+        <p style="margin-top: 0;"><b>Device 2</b></p>
+        <button class='btn btn-on'>Turn ON</button>
+        <button class='btn btn-off'>Turn OFF</button>
+    </div>
+
+    <div class="device-card">
+        <p style="margin-top: 0;"><b>Device 3</b></p>
+        <button class='btn btn-on'>Turn ON</button>
+        <button class='btn btn-off'>Turn OFF</button>
+    </div>
+
+    <div class="device-card">
+        <p style="margin-top: 0;"><b>Device 4</b></p>
+        <button class='btn btn-on'>Turn ON</button>
+        <button class='btn btn-off'>Turn OFF</button>
+    </div>
+
+    <table>
+        <tr>
+            <th>Status Light 1 & 2</th>
+            <th>Status Light 3 & 4</th>
+        </tr>
+        <tr>
+            <td>Light 1: <strong style="color:#e74c3c;">OFF</strong></td>
+            <td>Light 2: <strong style="color:#2ecc71;">ON</strong></td>
+        </tr>
+        <tr>
+            <td>Light 3: <strong style="color:#2ecc71;">ON</strong></td>
+            <td>Light 4: <strong style="color:#e74c3c;">OFF</strong></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

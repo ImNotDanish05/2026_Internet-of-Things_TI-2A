@@ -4,7 +4,7 @@
 // --- VARIABEL GLOBAL ---
 const char* ssid = "";     // Ganti pake SSID WiFi lu
 const char* password = ""; // Ganti pake Password WiFi lu
-const String serverIP = "http://10.26.33.214:8000";
+const String serverIP = "http://[IP_ADDRESS]";
 int pinLED = 2; // Pin D1 pada NodeMCU
 
 #define ON HIGH
