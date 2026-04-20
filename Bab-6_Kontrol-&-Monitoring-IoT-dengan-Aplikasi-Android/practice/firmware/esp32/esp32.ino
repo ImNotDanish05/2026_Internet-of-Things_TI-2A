@@ -1,14 +1,7 @@
 #include <WiFi.h>
 #include <FirebaseESP32.h>
 #include <DHT.h>
-
-// 1. Kredensial Firebase (Ambil dari Project Settings)
-#define FIREBASE_HOST "https://your-api-firebase" 
-#define FIREBASE_AUTH "your-token-:D"
-
-// 2. Kredensial WiFi
-#define WIFI_SSID ""
-#define WIFI_PASSWORD ""
+#include "config.h"
 
 // 3. Konfigurasi Sensor
 #define DHTPIN 27
